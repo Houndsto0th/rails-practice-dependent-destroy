@@ -20,6 +20,13 @@ class PrescriptionsController < ApplicationController
 
   end
 
+  def destroy
+    @prescription = Prescription.find(params[:id])
+    @prescription.destroy
+    redirect_to root_path, notice: "Prescription removed"
+  end
+
+
   private
 
   def allowed_params
